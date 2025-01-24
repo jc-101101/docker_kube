@@ -1,0 +1,11 @@
+version: '3' # Specify the version of docker-compose
+services:
+  web:
+    build: 
+      context: . # Use the current directory as the build context
+      dockerfile: Dockerfile.dev # Specify the Dockerfile to use for building the image
+    ports:
+      - "3000:3000" # Map port 3000 on the host to port 3000 in the container
+    volumes:
+      - /var/sw/johnsonchan/frontend/node_modules # Mount the node_modules directory to avoid overwriting it
+      - .:/var/sw/johnsonchan/frontend # Mount the current directory to the container
